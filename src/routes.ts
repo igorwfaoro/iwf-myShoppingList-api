@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { VERSION } from "../version";
+import { ProductsController } from "./controllers/products.controller";
+import { ShoppingListProductsController } from "./controllers/shopping-list-products.controller";
+import { ShoppingListsController } from "./controllers/shopping-lists.controller";
 import { CONSTANTS } from "./static/constants";
-import { DashboardController } from "./controllers/dashboard.controller";
-import { ProspectCustomersController } from "./controllers/prospect-customers.controller";
-import { SalesController } from "./controllers/sales.controller";
 
 const routes = Router();
 
@@ -12,6 +12,8 @@ routes.get(`/`, (req, res) => res.json({
     version: VERSION
 }));
 
-// routes.use(`/${CONSTANTS.API_V1}/prospect-customers`, ProspectCustomersController);
+routes.use(`/${CONSTANTS.API_V1}/products`, ProductsController);
+routes.use(`/${CONSTANTS.API_V1}/shoppingLists`, ShoppingListsController);
+routes.use(`/${CONSTANTS.API_V1}/shoppingLists/:shoppingListId/products`, ShoppingListProductsController);
 
 export { routes };

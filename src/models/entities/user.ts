@@ -1,5 +1,6 @@
-import { AllowNull, Column, CreatedAt, Table, Unique, UpdatedAt } from "sequelize-typescript";
+import { AllowNull, Column, CreatedAt, HasMany, Table, Unique, UpdatedAt } from "sequelize-typescript";
 import { Entity } from "../abstraction/entity";
+import { ShoppingList } from "./shopping-list";
 
 @Table({
     tableName: 'Users',
@@ -28,6 +29,9 @@ export class User extends Entity {
     @Column
     public password: string;
 
+    @HasMany(() => ShoppingList, 'userId')
+    public shoppingLists: ShoppingList[];
+
     @CreatedAt
     @Column
     public createdAt: Date;
@@ -35,10 +39,4 @@ export class User extends Entity {
     @UpdatedAt
     @Column
     public updatedAt: Date;
-
-    // @AllowNull(false)
-    // @Column({ field: 'prospect_customer_id' })
-    // public prospectCustomerId: number;
-    // @BelongsTo(() => ProspectCustomer, 'prospectCustomerId')
-    // public prospectCustomer: ProspectCustomer;
 }

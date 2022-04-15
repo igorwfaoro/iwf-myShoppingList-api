@@ -12,7 +12,7 @@ export class ShoppingListProduct extends Entity {
     public static createDefault(input: {
         shoppingListId: number;
         productId: number;
-        image: string;
+        quantity: number;
     }): ShoppingListProduct {
         return new ShoppingListProduct(input);
     }

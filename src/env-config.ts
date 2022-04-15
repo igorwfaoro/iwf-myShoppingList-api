@@ -2,6 +2,8 @@ export const ENV_CONFIG: {
     HOST: string;
     PORT: number;
 
+    JWT_SECRET: string;
+
     DATABASE_HOST: string;
     DATABASE_USER: string;
     DATABASE_PASSWORD: string;

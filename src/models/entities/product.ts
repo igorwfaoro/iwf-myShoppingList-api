@@ -10,7 +10,8 @@ export class Product extends Entity {
     public static createDefault(input: {
         title: string;
         brand: string;
-        image: string;
+        image?: string;
+        barcode: string;
     }): Product {
         return new Product(input);
     }
@@ -23,9 +24,8 @@ export class Product extends Entity {
     @Column
     public brand: string;
 
-    @AllowNull(false)
     @Column
-    public image: string;
+    public image?: string;
 
     @Unique
     @AllowNull(false)

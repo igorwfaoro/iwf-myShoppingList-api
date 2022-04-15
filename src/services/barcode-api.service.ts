@@ -1,13 +1,13 @@
 import { injectable } from "inversify";
-import { BarcodeProduct } from "../models/external/barcode-product";
+import { BarcodeApiProduct } from "../models/external/barcode-product";
 import createBrowserless from 'browserless';
 import { JSDOM } from 'jsdom';
 import { StringHelper } from "../common/helpers/string.helper";
 
 @injectable()
-export class BarcodeProductSearcherService {
+export class BarcodeApiService {
 
-    public async search(barcode: string): Promise<BarcodeProduct> {
+    public async search(barcode: string): Promise<BarcodeApiProduct> {
 
         try {
             const browserlessFactory = createBrowserless();
@@ -24,8 +24,8 @@ export class BarcodeProductSearcherService {
             const productBrand = StringHelper.normalize(document.querySelector('.product-details > div:nth-child(7) > span')?.textContent);
             const productImage = document.querySelector('#largeProductImage > img')?.src;
 
-            const product: BarcodeProduct = {
-                name: productName,
+            const product: BarcodeApiProduct = {
+                title: productName,
                 brand: productBrand,
                 image: productImage,
                 barcode
