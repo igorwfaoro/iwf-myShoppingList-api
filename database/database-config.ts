@@ -1,9 +1,10 @@
 import { injectable } from "inversify";
 import { Sequelize } from 'sequelize-typescript';
 import { ENV_CONFIG } from "../src/env-config";
-import { ApiKey } from "../src/models/entities/api-keys";
-import { ProspectCustomer } from "../src/models/entities/prospect-customer";
-import { Sale } from "../src/models/entities/user";
+import { Product } from "../src/models/entities/product";
+import { ShoppingList } from "../src/models/entities/shopping-list";
+import { ShoppingListProduct } from "../src/models/entities/shopping-list-product";
+import { User } from "../src/models/entities/user";
 
 @injectable()
 export class Database {
@@ -25,9 +26,10 @@ export class Database {
         });
 
         this.sequelize.addModels([
-            ProspectCustomer,
-            ApiKey,
-            Sale
+            Product,
+            ShoppingList,
+            ShoppingListProduct,
+            User
         ]);
     }
 }

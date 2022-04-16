@@ -4,9 +4,7 @@ import { checkToken } from "../middlewares/check-token";
 import { validateInput } from "../middlewares/validate-input";
 import { ServicesCollection } from "../providers";
 import { AuthService } from "../services/auth.service";
-import { ProductService } from "../services/product.service";
 import { authValidator } from "../validators/auth.validator";
-import { productValidator } from "../validators/product.validator";
 
 const AuthController = Router();
 

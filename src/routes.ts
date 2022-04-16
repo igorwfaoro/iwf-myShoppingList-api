@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { VERSION } from "../version";
+import { AuthController } from "./controllers/auth.controller";
 import { ProductsController } from "./controllers/products.controller";
 import { ShoppingListProductsController } from "./controllers/shopping-list-products.controller";
 import { ShoppingListsController } from "./controllers/shopping-lists.controller";
@@ -12,6 +13,7 @@ routes.get(`/`, (req, res) => res.json({
     version: VERSION
 }));
 
+routes.use(`/${CONSTANTS.API_V1}/auth`, AuthController);
 routes.use(`/${CONSTANTS.API_V1}/products`, ProductsController);
 routes.use(`/${CONSTANTS.API_V1}/shoppingLists`, ShoppingListsController);
 routes.use(`/${CONSTANTS.API_V1}/shoppingLists/:shoppingListId/products`, ShoppingListProductsController);
