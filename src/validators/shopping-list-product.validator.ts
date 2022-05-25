@@ -6,7 +6,6 @@ const shoppingListProductValidator = {
             shoppingListId: Joi.number().required()
         }).required(),
         body: Joi.object({
-            shoppingListId: Joi.number().required(),
             productId: Joi.number().required(),
             quantity: Joi.number().required()
         })

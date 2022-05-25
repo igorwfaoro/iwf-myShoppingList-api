@@ -25,7 +25,7 @@ export class BarcodeApiService {
             const { document } = new JSDOM(pageContent).window;
 
             const productName = StringHelper.normalize(document.querySelector('.product-details > h4')?.textContent);
-            const productBrand = StringHelper.normalize(document.querySelector('.product-details > div:nth-child(7) > span')?.textContent);
+            const productBrand = StringHelper.normalize(document.querySelector('.product-details > div:nth-child(8) > span')?.textContent);
             const productImage = document.querySelector('#largeProductImage > img')?.src;
 
             const product: BarcodeApiProduct = {

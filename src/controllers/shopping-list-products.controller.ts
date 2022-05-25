@@ -6,7 +6,7 @@ import { ServicesCollection } from "../providers";
 import { ShoppingListProductService } from "../services/shopping-list-product.service";
 import { shoppingListProductValidator } from "../validators/shopping-list-product.validator";
 
-const ShoppingListProductsController = Router();
+const ShoppingListProductsController = Router({ mergeParams: true });
 
 const shoppingListProductService = ServicesCollection.resolve(ShoppingListProductService);
 
